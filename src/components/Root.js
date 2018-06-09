@@ -4,6 +4,7 @@ import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import App from './App';
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class Root extends Component {
   render() {
     const { store, history } = this.props;
@@ -18,6 +19,6 @@ export default class Root extends Component {
 }
 
 Root.propTypes = {
-  store: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  store: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  history: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
 };

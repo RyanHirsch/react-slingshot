@@ -1,9 +1,8 @@
-import * as ActionTypes from '../constants/actionTypes';
-import * as ActionCreators from './fuelSavingsActions';
-
 import MockDate from 'mockdate';
 
-import {getFormattedDateTime} from '../utils/dates';
+import * as ActionTypes from '../constants/actionTypes';
+import * as ActionCreators from './fuelSavingsActions';
+import { getFormattedDateTime } from '../utils/dates';
 
 describe('Actions', () => {
   let dateModified;
@@ -16,8 +15,8 @@ describe('Actions', () => {
   const appState = {
     newMpg: 20,
     tradeMpg: 10,
-    newPpg: 1.50,
-    tradePpg: 1.50,
+    newPpg: 1.5,
+    tradePpg: 1.5,
     milesDriven: 100,
     milesDrivenTimeframe: 'week',
     displayResults: false,
@@ -26,8 +25,8 @@ describe('Actions', () => {
     savings: {
       monthly: 0,
       annual: 0,
-      threeYear: 0
-    }
+      threeYear: 0,
+    },
   };
 
   it('should create an action to save fuel savings', () => {
@@ -35,11 +34,11 @@ describe('Actions', () => {
     const expected = {
       type: ActionTypes.SAVE_FUEL_SAVINGS,
       dateModified,
-      settings: appState
+      settings: appState,
     };
 
     // we expect this to return a function since it is a thunk
-    expect(typeof (ActionCreators.saveFuelSavings(appState))).toEqual('function');
+    expect(typeof ActionCreators.saveFuelSavings(appState)).toEqual('function');
     // then we simulate calling it with dispatch as the store would do
     ActionCreators.saveFuelSavings(appState)(dispatch);
     // finally assert that the dispatch was called with our expected action
@@ -55,7 +54,7 @@ describe('Actions', () => {
       dateModified,
       settings: appState,
       fieldName,
-      value
+      value,
     };
 
     expect(actual).toEqual(expected);
